@@ -12,8 +12,8 @@
     />
   </head>
   <body>
-    <div class="announcement-banner">
-      📢 Activity registration is open until the end of the month. Don't lose your spot!
+    <div class="announcement-banner" id="announcement-banner">
+      <!-- DBから取得したお知らせを表示 -->
     </div>
     <header>
       <h1>Mergington High School</h1>
@@ -27,6 +27,10 @@
           <div id="user-info" class="hidden">
             <span id="display-name"></span>
             <button id="logout-button">Logout</button>
+            <button id="announcement-manage-button" class="icon-button hidden">
+              <span class="user-icon">📢</span>
+              <span>Manage Announcements</span>
+            </button>
           </div>
         </div>
       </div>
@@ -40,7 +44,11 @@
             <h3>Filter Activities</h3>
             <!-- Search Box -->
             <div class="search-box">
-              <input type="text" id="activity-search" placeholder="Search activities..." />
+              <input
+                type="text"
+                id="activity-search"
+                placeholder="Search activities..."
+              />
               <button id="search-button" aria-label="Search">
                 <span class="search-icon">🔍</span>
               </button>
@@ -49,12 +57,24 @@
             <div class="filter-container">
               <div class="filter-label">Filter by category:</div>
               <div class="category-filters" id="category-filters">
-                <button class="category-filter active" data-category="all">All</button>
-                <button class="category-filter" data-category="sports">Sports</button>
-                <button class="category-filter" data-category="arts">Arts</button>
-                <button class="category-filter" data-category="academic">Academic</button>
-                <button class="category-filter" data-category="community">Community</button>
-                <button class="category-filter" data-category="technology">Technology</button>
+                <button class="category-filter active" data-category="all">
+                  All
+                </button>
+                <button class="category-filter" data-category="sports">
+                  Sports
+                </button>
+                <button class="category-filter" data-category="arts">
+                  Arts
+                </button>
+                <button class="category-filter" data-category="academic">
+                  Academic
+                </button>
+                <button class="category-filter" data-category="community">
+                  Community
+                </button>
+                <button class="category-filter" data-category="technology">
+                  Technology
+                </button>
               </div>
             </div>
 
@@ -65,7 +85,9 @@
                 <button class="day-filter active" data-day="">All Days</button>
                 <button class="day-filter" data-day="Monday">Monday</button>
                 <button class="day-filter" data-day="Tuesday">Tuesday</button>
-                <button class="day-filter" data-day="Wednesday">Wednesday</button>
+                <button class="day-filter" data-day="Wednesday">
+                  Wednesday
+                </button>
                 <button class="day-filter" data-day="Thursday">Thursday</button>
                 <button class="day-filter" data-day="Friday">Friday</button>
                 <button class="day-filter" data-day="Saturday">Saturday</button>
@@ -77,9 +99,15 @@
             <div class="filter-container time-filter-container">
               <div class="filter-label">Filter by time:</div>
               <div class="time-filters">
-                <button class="time-filter active" data-time="">All Times</button>
-                <button class="time-filter" data-time="morning">Before School</button>
-                <button class="time-filter" data-time="afternoon">After School</button>
+                <button class="time-filter active" data-time="">
+                  All Times
+                </button>
+                <button class="time-filter" data-time="morning">
+                  Before School
+                </button>
+                <button class="time-filter" data-time="afternoon">
+                  After School
+                </button>
                 <button class="time-filter" data-time="weekend">Weekend</button>
               </div>
             </div>
@@ -109,7 +137,12 @@
         <form id="signup-form">
           <div class="form-group">
             <label for="email">Student Email:</label>
-            <input type="email" id="email" required placeholder="your-email@mergington.edu" />
+            <input
+              type="email"
+              id="email"
+              required
+              placeholder="your-email@mergington.edu"
+            />
           </div>
           <input type="hidden" id="activity" value="" />
           <button type="submit">Register</button>
@@ -125,11 +158,21 @@
         <form id="login-form">
           <div class="form-group">
             <label for="username">Username:</label>
-            <input type="text" id="username" required placeholder="Enter your username" />
+            <input
+              type="text"
+              id="username"
+              required
+              placeholder="Enter your username"
+            />
           </div>
           <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" id="password" required placeholder="Enter your password" />
+            <input
+              type="password"
+              id="password"
+              required
+              placeholder="Enter your password"
+            />
           </div>
           <button type="submit">Login</button>
         </form>
@@ -137,6 +180,35 @@
       </div>
     </div>
 
+    <!-- Announcement 管理ダイアログ -->
+    <div id="announcement-modal" class="modal hidden">
+      <div class="modal-content announcement-modal-content">
+        <span class="close-announcement-modal">&times;</span>
+        <h3>Announcements Management</h3>
+        <div id="announcement-list">
+          <!-- 一覧表示 -->
+        </div>
+        <form id="announcement-form">
+          <div class="form-group">
+            <label for="announcement-message">Message:</label>
+            <input type="text" id="announcement-message" required />
+          </div>
+          <div class="form-group">
+            <label for="announcement-start-date">Start Date (optional):</label>
+            <input type="date" id="announcement-start-date" />
+          </div>
+          <div class="form-group">
+            <label for="announcement-expiration-date">Expiration Date:</label>
+            <input type="date" id="announcement-expiration-date" required />
+          </div>
+          <input type="hidden" id="announcement-id" />
+          <button type="submit" id="announcement-save-button">
+            Add Announcement
+          </button>
+        </form>
+        <div id="announcement-modal-message" class="hidden message"></div>
+      </div>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>

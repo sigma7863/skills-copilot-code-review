@@ -1,3 +1,83 @@
+.announcement-modal-content {
+  max-width: 420px;
+  width: 98%;
+  padding: 24px 20px;
+}
+
+.announcement-item {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.announcement-message {
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 2px;
+}
+.announcement-dates {
+  font-size: 0.85em;
+  color: var(--text-secondary);
+  display: flex;
+  gap: 12px;
+}
+.announcement-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+.announcement-actions button {
+  background-color: var(--primary-light);
+  color: white;
+  border-radius: 15px;
+  font-size: 0.8em;
+  padding: 3px 12px;
+}
+.announcement-actions button:hover {
+  background-color: var(--primary-dark);
+}
+#announcement-form {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#announcement-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+#announcement-form label {
+  font-size: 0.9em;
+  color: var(--primary);
+  font-weight: 500;
+}
+#announcement-form input[type="text"],
+#announcement-form input[type="date"] {
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.95em;
+}
+#announcement-save-button {
+  background: linear-gradient(145deg, var(--secondary), var(--secondary-dark));
+  color: var(--secondary-text);
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 7px 0;
+  margin-top: 8px;
+  font-size: 1em;
+}
+#announcement-save-button:hover {
+  background: var(--secondary-dark);
+}
+#announcement-modal-message {
+  margin-top: 10px;
+}
 /* Color palette */
 :root {
   /* Primary colors */
